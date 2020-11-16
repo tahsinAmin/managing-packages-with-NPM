@@ -1,6 +1,7 @@
 {
 	"author": "Useful Programmer",
 	"description":"A web app that teaches people the ability to make meaningful contributions to software projects",
+	"keywords":["freecodecamp","npm","project"],
 	"name": "fcc-learn-npm-package-json",
 	"dependencies": {
 		"express": "^4.14.0"
