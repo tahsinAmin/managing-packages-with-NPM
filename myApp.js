@@ -26,10 +26,13 @@ app.get("/", function(req,res){
 app.use(express.static(__dirname + "/public"));
 app.use("/public", express.static(__dirname + "/public"));
 
+// 5) serve JSON on a specific routes
 
-
-
-
+app.get("/json", function(req, res){
+    res.json(
+        { "message": "Hello json" }
+    );
+});
 
 
 
