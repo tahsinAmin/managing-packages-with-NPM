@@ -6,7 +6,7 @@ require('dotenv').config();
 // --> 7) Mount the Logger middleware here
 
 app.use(function(req, res, next){
-    console.log(req.method + " " + req.path + " - " + req.ip) 
+    console.log(req.method + " " + req.path + " - " + req.ip)
     next();
 });
 
@@ -37,6 +37,8 @@ app.use("/public", express.static(__dirname + "/public"));
 //     );
 // });
 
+
+
 // 6) Use the .env file to configure the app
 
 app.get("/json", function(req,res){
@@ -53,9 +55,18 @@ app.get("/json", function(req,res){
 
 
 
+// 8) chaining Middleware. A time server
 
+function getTheCurrentTimeString(){
+    return new Date().toString();
+}
 
-
+app.get("/now", (req, res, next) => {
+    req.time = getTheCurrentTimeString();
+    next();
+}, function(req, res){
+    res.json({ time: req.time });
+});
 
 
 
