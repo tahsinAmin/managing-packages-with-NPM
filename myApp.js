@@ -64,7 +64,7 @@ function getTheCurrentTimeString(){
 app.get("/now", (req, res, next) => {
     req.time = getTheCurrentTimeString();
     next();
-}, function(req, res){
+}, (req, res) => {
     res.json({ time: req.time });
 });
 
