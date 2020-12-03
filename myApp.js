@@ -68,11 +68,17 @@ app.get("/now", (req, res, next) => {
     res.json({ time: req.time });
 });
 
-
 // 9) Get input from client - Route parameters
 
 app.get("/:word/echo", (req, res) => {
     res.json({ echo: req.params.word })
+});
+
+// 10) Get input from Client - Query parameters
+// /name?first=<firstname>&<lastname>
+
+app.get("/name", (req, res) => {
+    res.json({ name: req.query.first + " " + req.query.last});
 });
 
  module.exports = app;
