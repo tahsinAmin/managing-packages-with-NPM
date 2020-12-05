@@ -90,3 +90,9 @@ app.get("/name", (req, res) => {
 });
 
  module.exports = app;
+
+// 12) Get data from POST
+
+app.post("/name", (req, res) => {
+    res.json({ name: req.query.first + " " + req.query.last});
+});
